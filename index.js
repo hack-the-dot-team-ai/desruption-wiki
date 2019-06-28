@@ -1,6 +1,7 @@
 import playSound from './audio.js';
 
 const formNode = document.getElementById('form');
+const submittedNode = document.getElementById('submittedInfo');
 
 const words = [
     {
@@ -321,10 +322,22 @@ const words = [
     }
     ];
 
+    const disruptArray = words.map(word => word.word);
+
 formNode.addEventListener('submit', async event => {
     event.preventDefault();
     playSound();
     const formFromData = new FormData(formNode);
     const textArray = formFromData.get('textArea').split(' ');
-    console.log(textArray);    
+
+    const newText = textArray.map(word => {
+        if(Math.random() < .3) {
+            const randomNumber = Math.floor(Math.random() * disruptArray.length);
+            return disruptArray[randomNumber]
+        }
+        return word;
+    }).join(' ');
+
+    submittedNode.textContent = newText;
+    console.log(newText);
 });
