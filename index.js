@@ -319,9 +319,19 @@ const words = [
     }
     ];
 
+    const disruptArray = words.map(word => word.word);
+
 formNode.addEventListener('submit', async event => {
     event.preventDefault();
     const formFromData = new FormData(formNode);
     const textArray = formFromData.get('textArea').split(' ');
-    console.log(textArray);    
+
+    const newText = textArray.map(word => {
+        if(Math.random() < .3) {
+            const randomNumber = Math.floor(Math.random() * disruptArray.length);
+            return disruptArray[randomNumber]
+        }
+        return word;
+    }).join(' ');
+    console.log(newText);
 });
