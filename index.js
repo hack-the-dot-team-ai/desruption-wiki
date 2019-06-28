@@ -1,3 +1,5 @@
+import playSound from './audio.js';
+
 const formNode = document.getElementById('form');
 
 const words = [
@@ -321,6 +323,7 @@ const words = [
 
 formNode.addEventListener('submit', async event => {
     event.preventDefault();
+    playSound();
     const formFromData = new FormData(formNode);
     const textArray = formFromData.get('textArea').split(' ');
     console.log(textArray);    
