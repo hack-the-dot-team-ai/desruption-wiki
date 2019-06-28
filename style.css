@@ -35,3 +35,8 @@ button:hover {
 background-image {
   opacity: 0.6;
 }
+
+#submittedInfo {
+  background-color: rgba(245, 222, 179, 0.397);
+  font-size: 5rem;
+}

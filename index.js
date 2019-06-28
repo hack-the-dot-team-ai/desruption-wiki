@@ -1,4 +1,5 @@
 const formNode = document.getElementById('form');
+const submittedNode = document.getElementById('submittedInfo');
 
 const words = [
     {
@@ -333,5 +334,7 @@ formNode.addEventListener('submit', async event => {
         }
         return word;
     }).join(' ');
+
+    submittedNode.textContent = newText;
     console.log(newText);
 });
