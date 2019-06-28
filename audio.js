@@ -1,0 +1,1 @@
+const button = new Audio('./assets/button.mp3');
